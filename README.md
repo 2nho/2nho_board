@@ -1,3 +1,5 @@
+java, spring ,jQuery ,datatable, bootstrap , mybatis , mysql 
+
 # board
 
  * 게시판은 게시글의 ID, 제목, 본문, 생성날짜로 구성되며 제목과 본문은 각각 텍스트 입니다.
