@@ -1,4 +1,7 @@
 java, spring ,jQuery ,datatable, bootstrap , mybatis , mysql 
+my.ini 설정 
+ft_min_word_len = 2
+innodb_ft_min_token_size = 2
 
 # board
 
