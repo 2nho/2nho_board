@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/beans
+                 		http://www.springframework.org/schema/beans/spring-beans.xsd
+                 		http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+                 		http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx.xsd
+                 		http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- 스캔한 패키지 내부 클래스 중 @Controller 있는 클래스 controller로써 로딩하도록 설정 -->
+	<annotation-driven />
+
+	<!-- 스캔할 bean들이 모여있는 패키지 지정 -->
+	<!-- <context:component-scan base-package="com.inho.demo.controller" /> -->
+	<!-- MyBatis와 트랜잭션 제어를 위한 service 패키지 지정 -->
+	<!-- <context:component-scan base-package="com.inho.demo.service" /> -->
+	<context:component-scan base-package="com.inho.demo" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
+	<!-- Controller의 메서드에서 반환하는 문자열 앞, 뒤에 붙일 경로 정보 셋팅 -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+
+	<!-- 정적파일(img, video, audio) 로드 설정 -->
+	<resources mapping="/**" location="/resources/" />
+	
+	<!-- 파일 업로드를 위한 multipartResolver 설정 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 파일 업로드 용량 설정 -->
+		<!-- 토탈 업로드 용량 -->
+		<beans:property name="maxUploadSize" value="52428800"/>
+		<!-- 파일당 업로드 용량 : 보통 토탈 업로드 용량과 같게 설정함 -->
+		<beans:property name="maxUploadSizePerFile" value="52428800"/>
+		<!-- DirectAcessMemory를 사용할 예정이나 memory를 거쳐갈 것을 대비해서 미리 0으로 설정해 방지한다  -->
+		<beans:property name="maxInMemorySize" value="0"/>
+	</beans:bean>
+		
+	<!-- 트랜잭션 제어 객체 bean 4 : 多사용 -->
+	<tx:annotation-driven/>
+	
+</beans:beans>
