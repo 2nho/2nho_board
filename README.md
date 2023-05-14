@@ -6,6 +6,11 @@ java, spring ,jQuery ,datatable, bootstrap , mybatis , mysql
 ft_min_word_len = 2  
 innodb_ft_min_token_size = 2  
 
+# db설정
+src/main/webapp/WEB-INF/properties/db.properties 
+에서 설정을 맞게 변경
+
+
 # board
 
  * 게시판은 게시글의 ID, 제목, 본문, 생성날짜로 구성되며 제목과 본문은 각각 텍스트 입니다.
@@ -23,3 +28,4 @@ innodb_ft_min_token_size = 2
 
 
 ###  간단하게 게시판만 구현하는 사항이라 interface 따로 먼저 구현하고 implement 하는 방식으로는 사용안함 
+
