@@ -6,7 +6,7 @@ java, spring ,jQuery ,datatable, bootstrap , mybatis , mysql
 ft_min_word_len = 2  
 innodb_ft_min_token_size = 2  
 
-# db설정
+# DB설정
 src/main/webapp/WEB-INF/properties/db.properties 
 에서 설정을 맞게 변경
 
