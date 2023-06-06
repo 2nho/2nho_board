@@ -1,6 +1,5 @@
 java, spring ,jQuery ,datatable, bootstrap , mybatis , mysql   
 
-
 2글자의 단어도 검색을 위한 my.ini 설정 
 
 ft_min_word_len = 2  
