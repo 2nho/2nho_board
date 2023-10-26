@@ -26,3 +26,4 @@ src/main/webapp/WEB-INF/properties/db.properties
 
  
 
+- 엘라스틱서치 nori 형태소 분석기 이용방식 - naver
